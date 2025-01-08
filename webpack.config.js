@@ -18,7 +18,7 @@ module.exports = {
   },
   plugins: [
     new webpack.EnvironmentPlugin({
-      HOST: "localhost",
+      HOST: "0.0.0.0",
       PORT: 8080,
     }),
   ],
