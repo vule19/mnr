@@ -8,8 +8,8 @@ const ContestList = ({ initialContests }) => {
   const [contests, setContests] = useState(initialContests);
 
   useEffect(() => {
-    fetchContests().then((contests) => {
-      setContests(contests);
+    fetchContests().then((data) => {
+      setContests(data.contests);
     });
   }, []);
 
