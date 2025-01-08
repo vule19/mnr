@@ -18,8 +18,8 @@ module.exports = {
   },
   plugins: [
     new webpack.EnvironmentPlugin({
-      HOST: "0.0.0.0",
-      PORT: "8080",
+      HOST: "localhost",
+      PORT: 8080,
     }),
   ],
 };
