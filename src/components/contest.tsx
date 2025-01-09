@@ -17,7 +17,6 @@ const Contest = ({ initialContest, onContestListClick }) => {
 
     const handleClickContestList = (event) => {
         event.preventDefault();
-
         onContestListClick();
     }
 

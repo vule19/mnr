@@ -10,7 +10,7 @@ const ContestList = ({ initialContests, onContestClick }) => {
 
   useEffect(() => {
     if (!initialContests) {
-      fetchContestList().then((data) => {
+      fetchContestList().then((contests) => {
         setContests(contests);
       });
     }
