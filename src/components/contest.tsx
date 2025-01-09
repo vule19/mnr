@@ -7,11 +7,13 @@ import React from "react";
 const Contest = ({ initialContest }) => {
     const [contest, setContest] = useState(initialContest);
 
-    // useEffect(() => {
-    //     fetchContests(id).then((contest) => {
-    //         setContest(contest)
-    //     });
-    // }, [id]);
+    useEffect(() => {
+        if (!contest.names) {
+            fetchContests(contest.id).then((contest) => {
+                setContest(contest)
+            });
+        }   
+    }, [contest.id, contest.names]);
 
     return (
         <React.Fragment>
