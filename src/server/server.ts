@@ -1,5 +1,6 @@
 import express from "express";
 import os from "node:os";
+import serverRender from "./render";
 
 import config from "./config";
 import apiRouter from "./api-router";
@@ -12,9 +13,11 @@ server.set("view engine", "ejs");
 
 server.use("/api", apiRouter);
 
-server.get("/", (req, res) => {
+server.get("/", async (req, res) => {
+  const {initialMarkup, initialData} = await serverRender();
   res.render("index", {
-    initialContent: "Loading...",
+    initialMarkup,
+    initialData,
   });
 });
 
