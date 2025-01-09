@@ -4,14 +4,14 @@ import Header from "./header";
 import React from "react";
 
 
-const Contest = ({ id }) => {
-    const [contest, setContest] = useState({});
+const Contest = ({ initialContest }) => {
+    const [contest, setContest] = useState(initialContest);
 
-    useEffect(() => {
-        fetchContests(id).then((contest) => {
-            setContest(contest)
-        });
-    }, [id]);
+    // useEffect(() => {
+    //     fetchContests(id).then((contest) => {
+    //         setContest(contest)
+    //     });
+    // }, [id]);
 
     return (
         <React.Fragment>
