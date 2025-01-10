@@ -18,7 +18,13 @@ const Contest = ({ initialContest, onContestListClick }) => {
     const handleClickContestList = (event) => {
         event.preventDefault();
         onContestListClick();
-    }
+    };
+
+    const handleNewNameSubmit = (event) => {
+        event.preventDefault();
+        const newNameINput = event.target.newName;
+        console.log(event.target.newName.value)
+    };
 
     return (
         <React.Fragment>
@@ -28,6 +34,7 @@ const Contest = ({ initialContest, onContestListClick }) => {
                 <div className="description">{contest.description}</div>
 
                 <div className="title">Proposed Names</div>
+                
                 <div className="body">
                     {contest.names?.length > 0 ? (
                         <div className="list">
@@ -37,9 +44,19 @@ const Contest = ({ initialContest, onContestListClick }) => {
                         </div>
                     ) : (
                         <div>No names proposed yet</div>
-                    )}
-                
-                        
+                    )}   
+                </div>
+
+                <div className="title">Propose a New Name</div>
+                <div className="body">
+                    <form onSubmit={handleNewNameSubmit}>
+                        <input 
+                            type="text"
+                            name="newName"
+                            placeholder="New Name Here.."
+                        />
+                        <button type="submit">Submit</button>
+                    </form>
                 </div>
 
                 <a href="/" className="link" onClick={handleClickContestList}>Home</a>
