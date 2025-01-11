@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
-import React from "react";
+import { React, useEffect, useState } from "react";
 
 import { fetchContestList } from "../api-client";
-import Header from "./header";
+
 import ContestPreview from "./contest-preview";
+import Header from "./header";
 
 const ContestList = ({ initialContests, onContestClick }) => {
-  const [contests, setContests] = useState(initialContests ?? []);
+  const [contests, setContests] = useState(
+    initialContests ?? [],
+  );
 
   useEffect(() => {
     if (!initialContests) {
@@ -14,7 +16,6 @@ const ContestList = ({ initialContests, onContestClick }) => {
         setContests(contests);
       });
     }
-    
   }, [initialContests]);
 
   return (
@@ -24,7 +25,11 @@ const ContestList = ({ initialContests, onContestClick }) => {
       <div className="contest-list">
         {contests.map((contest) => {
           return (
-            <ContestPreview key={contest.id} contest={contest} onClick={onContestClick} />
+            <ContestPreview
+              key={contest.id}
+              contest={contest}
+              onClick={onContestClick}
+            />
           );
         })}
       </div>

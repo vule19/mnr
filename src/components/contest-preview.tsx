@@ -1,18 +1,14 @@
 import * as React from "react";
 
-const ContestPreview: React.FC<{ 
+const ContestPreview: React.FC<{
   contest: object;
   onClick: any;
-}> = ({
-  contest,
-  onClick
-}) => {
+}> = ({ contest, onClick }) => {
   const handleClick = (event) => {
     event.preventDefault();
 
     onClick(contest.id);
-    
-  }
+  };
 
   return (
     <div className="contest-preview link" onClick={handleClick}>
